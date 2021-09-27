@@ -1,4 +1,4 @@
-export default class ArchivoFS {
+module.exports = class ArchivoFS { 
     constructor (archivo) {
         this.archivo=archivo;
     }
