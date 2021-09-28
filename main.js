@@ -56,6 +56,7 @@ function nombreProductos(array) {
     nombreProducto.push(producto.nombre)            
     });
     console.log('Lista de productos: ',nombreProducto.toString());
+    return nombreProducto.toString();
 }
 function valorTotal(array) { 
     let precioTotal = 0;
@@ -63,6 +64,7 @@ function valorTotal(array) {
         precioTotal += producto.precio
     })
     console.log(precioTotal.toFixed(2));
+    return precioTotal.toFixed(2);
 }
 function valorMedio(array){
     let precioTotal = 0;
@@ -72,14 +74,42 @@ function valorMedio(array){
     })
     promedio=precioTotal/array.length;
     console.log('el valor promedio es: ',promedio.toFixed(2))
-
+    return promedio.toFixed(2);
 }
 function productoMasCaro(array){
-    let algo = Math.max(...array.precio);
-    console.log(algo);
+    let precio = 0;
+    let productoCaro = {};
+    array.forEach(producto => {
+        if(producto.precio > precio){
+            precio=producto.precio;
+        }
+    }
+    );
+    productoCaro = array.filter(producto=>producto.precio === precio)
+    productoCaro= productoCaro[0]
+    console.log('el producto mas caro es: ',productoCaro);
+    return productoCaro;
 }
-// nombreProductos(productos);
-// valorTotal(productos);
-// valorMedio(productos);
+function productoMasBarato(array){
+    let precio = array[0].precio;
+    let productoBarato = {};
+    array.forEach(producto => {
+        if(producto.precio < precio){
+            precio=producto.precio;
+        }
+    }
+    );
+    productoBarato = array.filter(producto=>producto.precio === precio)
+    productoBarato = productoBarato[0]
+    console.log('el producto mas barato es: ',productoBarato);
+    return productoBarato;
+}
 
-productoMasCaro(productos)
+let total = [];
+total.push('Productos: '+nombreProductos(productos));
+total.push('Precio mas alto: '+valorTotal(productos));
+total.push('Precio mas bajo: '+valorMedio(productos));
+total.push(productoMasCaro(productos))
+total.push(productoMasBarato(productos))
+
+console.log(total);
