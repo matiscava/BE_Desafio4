@@ -77,30 +77,31 @@ function valorMedio(array){
     return promedio.toFixed(2);
 }
 function productoMasCaro(array){
-    let precio = 0;
-    let productoCaro = {};
-    array.forEach(producto => {
-        if(producto.precio > precio){
-            precio=producto.precio;
-        }
-    }
-    );
-    productoCaro = array.filter(producto=>producto.precio === precio)
-    productoCaro= productoCaro[0]
+    // let precio = 0;
+    let productoCaro = array.sort((a,b)=>a.precio-b.precio).pop();
+    // array.forEach(producto => {
+    //     if(producto.precio > precio){
+    //         precio=producto.precio;
+    //     }
+    // }
+    // );
+    // productoCaro = array.filter(producto=>producto.precio === precio)
+    // productoCaro= productoCaro[0]
     console.log('el producto mas caro es: ',productoCaro);
     return productoCaro;
 }
 function productoMasBarato(array){
-    let precio = array[0].precio;
-    let productoBarato = {};
-    array.forEach(producto => {
-        if(producto.precio < precio){
-            precio=producto.precio;
-        }
-    }
-    );
-    productoBarato = array.filter(producto=>producto.precio === precio)
-    productoBarato = productoBarato[0]
+    // let precio = array[0].precio;
+    let productoBarato = array.sort((a,b)=>a.precio-b.precio).shift();
+    // array.forEach(producto => {
+    //     if(producto.precio < precio){
+    //         precio=producto.precio;
+    //     }
+    // }
+    // );
+    // console.log(array.sort((a,b)=>a.precio-b.precio).shift())
+    // productoBarato = array.filter(producto=>producto.precio === precio)
+    // productoBarato = productoBarato[0]
     console.log('el producto mas barato es: ',productoBarato);
     return productoBarato;
 }
