@@ -10,5 +10,6 @@ const moment = require('moment');
 // console.log({promedio,min,max});
 
 // console.log(minmaxaverage);
-const today = moment();
-console.log(today)
+
+    const today = moment();
+    console.log('TODAY:', today.hour())
