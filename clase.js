@@ -7,6 +7,7 @@ module.exports = class ArchivoFS {
         const data = fs.readFileSync(this.archivo);
         const objeto = JSON.parse(data);
         console.log('Objeto: ',objeto);
+        return objeto;
     }
     save(titulo,precio,url){
         const fs = require('fs');

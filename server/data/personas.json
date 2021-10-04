@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nombre": "Matias",
+        "apellido": "Scavarelli",
+        "edad": 30
+    },
+    {
+        "id": 2,
+        "nombre": "Lucas",
+        "apellido": "Fulanito",
+        "edad": 40   
+    }
+]
