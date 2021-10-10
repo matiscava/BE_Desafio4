@@ -12,8 +12,13 @@ personasRouter.get('/', async (req,res)=>{
     });
 })
 
-personasRouter.post('/', (req,res)=>{
-    res.send('post ok');
+personasRouter.post('/', async (req,res)=>{
+    const newPersona = req.body;
+    // const personaSaved =  await personasRouter.save()
+    res.send({
+        message: 'success',
+        data: newPersona
+    });
 })
 
 module.exports = personasRouter;

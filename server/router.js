@@ -8,6 +8,8 @@ const { Router } = express;
 const app = express();
 const router = Router();
 
+const pug = require('pug');
+
 const PORT = 8080;
 
 //Permite usar el req.body, setea el parametro a recibir en json
@@ -16,6 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 app.use(express.static('public'))
+app.set('views', './views');
+app.set('view engine', 'pug');
 
 router.get('/', (req,res)=> {
     res.send('get ok');
